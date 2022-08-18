@@ -9,16 +9,14 @@ const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 
-const config = {
-	signInRedirectURL: "http://localhost:3000",
-	signOutRedirectURL: "http://localhost:3000",
-	clientID: "client ID",
-	baseUrl: "https://api.asgardeo.io/t/<org_name>",
-	scope: ["openid", "profile"]
-};
-
 root.render(
-	<AuthProvider config={config}>
+	<AuthProvider config={{
+		signInRedirectURL: "http://localhost:3000",
+		signOutRedirectURL: "http://localhost:3000",
+		clientID: "client ID",
+		baseUrl: "https://api.asgardeo.io/t/<org_name>",
+		scope: ["openid", "profile"]
+	}}>
 		<App/>
 	</AuthProvider>
 );
