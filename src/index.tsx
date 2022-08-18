@@ -10,20 +10,15 @@ const root = ReactDOM.createRoot(
 );
 
 const config = {
-	"clientID": "",
-	"baseUrl": "",
-	"signInRedirectURL": "http://localhost:3000",
-	"signOutRedirectURL": "http://localhost:3000",
-	"scope": [
-		"openid",
-		"profile"
-	]
+	signInRedirectURL: "http://localhost:3000",
+	signOutRedirectURL: "http://localhost:3000",
+	clientID: "client ID",
+	baseUrl: "https://api.asgardeo.io/t/<org_name>",
+	scope: ["openid", "profile"]
 };
 
 root.render(
-	<AuthProvider
-		config={config}
-	>
+	<AuthProvider config={config}>
 		<App/>
 	</AuthProvider>
 );
