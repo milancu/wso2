@@ -13,8 +13,8 @@ root.render(
 	<AuthProvider config={{
 		signInRedirectURL: "http://localhost:3000",
 		signOutRedirectURL: "http://localhost:3000",
-		clientID: "client ID",
-		baseUrl: "https://api.asgardeo.io/t/<org_name>",
+		clientID: "",
+		baseUrl: "",
 		scope: ["openid", "profile"]
 	}}>
 		<App/>
