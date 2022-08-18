@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useAuthContext} from "@asgardeo/auth-react";
+import {ReactElement} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Encapsulate your components with the `AuthProvider`.
+export const App = (): ReactElement => {
+
+	const {state, signIn, signOut} = useAuthContext();
+
+	return (
+		<div className="App">
+			{
+				state.isAuthenticated
+					? (
+						<div>
+							<ul>
+								<li>{state.username}</li>
+							</ul>
+
+							<button onClick={() => signOut()}>Logout</button>
+						</div>
+					)
+					: <button onClick={() => signIn()}>Login</button>
+			}
+		</div>
+	)
 }
 
-export default App;
+export default App
